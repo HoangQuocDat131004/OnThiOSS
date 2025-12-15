@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Demo CI/CD Hoang Quoc Dat</title>
+</head>
+
+<body>
+    <h1>Danh sách Sinh viên (Từ Backend PHP)</h1>
+    <ul id="student-list">Loading...</ul>
+
+    <script>
+        fetch('api.php')
+            .then(response => response.json())
+            .then(data => {
+                const list = document.getElementById('student-list');
+                list.innerHTML = data.map(s => `<li>${s.name} - ${s.id}</li>`).join('');
+            })
+            .catch(err => console.error(err));
+    </script>
+</body>
+
+</html>
